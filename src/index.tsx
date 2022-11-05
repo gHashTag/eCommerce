@@ -1,8 +1,8 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {PopUp} from './components/';
-import {Home} from './UI';
+import React from 'react'
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {PopUp} from './components/'
+import {Home} from './UI'
 import {
   SuccessScreen,
   SignUpScreen,
@@ -15,15 +15,16 @@ import {
   SettingsScreen,
   MyBag,
   TestScreen,
-} from './screens';
+  OrderDetailsScreen,
+} from './screens'
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="TestScreen"
+        initialRouteName="OrderDetailsScreen"
         screenOptions={{headerShown: false}}>
         <Stack.Screen
           component={PopUp}
@@ -86,9 +87,14 @@ function Navigation() {
           name={'TestScreen'}
           options={{animation: 'fade'}}
         />
+        <Stack.Screen
+          component={OrderDetailsScreen}
+          name={'OrderDetailsScreen'}
+          options={{animation: 'fade'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }
 
-export {Navigation};
+export {Navigation}
