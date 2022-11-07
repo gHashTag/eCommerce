@@ -1,6 +1,6 @@
-import React, {useState, useRef} from 'react';
-import {StyleSheet, View, ScrollView} from 'react-native';
-import {BLACK, WHITE, PRIMARY, DARK} from './constants';
+import React, {useState, useRef} from 'react'
+import {StyleSheet, View, ScrollView} from 'react-native'
+import {BLACK, WHITE, PRIMARY, DARK} from './constants'
 import {
   Space,
   Text,
@@ -32,8 +32,8 @@ import {
   Header,
   TagSmall,
   CardPromo,
-} from './components';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+} from './components'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const styles = StyleSheet.create({
   container: {
@@ -52,45 +52,46 @@ const styles = StyleSheet.create({
   fumiStyle: {
     flex: 1,
   },
-});
+})
 
 interface HomeT {
-  navigation: any;
-  route: any;
+  navigation: any
+  route: any
 }
 
 function Home({navigation, route}: HomeT) {
-  const {container, textStyle, layoutContainer, labelStyle} = styles;
-  const [isEnabled, setIsEnabled] = useState(false);
-  const [redCheckBoxValue, setRedCheckBoxValue] = useState(false);
-  const [whiteCheckBoxValue, setWhiteCheckBoxValue] = useState(false);
-  const [isInvisibleBorder, setIsInvisibleBorder] = useState(false);
-  const [isVisibleBorder, setIsVisibleBorder] = useState(false);
-  const [count, setCount] = useState(0);
-  const [isActive, setActive] = useState(false);
-  const {navigate} = navigation;
+  const {container, textStyle, layoutContainer, labelStyle} = styles
+  const [isEnabled, setIsEnabled] = useState(false)
+  const [redCheckBoxValue, setRedCheckBoxValue] = useState(false)
+  const [whiteCheckBoxValue, setWhiteCheckBoxValue] = useState(false)
+  const [isInvisibleBorder, setIsInvisibleBorder] = useState(false)
+  const [isVisibleBorder, setIsVisibleBorder] = useState(false)
+  const [count, setCount] = useState(0)
+  const [isActive, setActive] = useState(false)
+  const {navigate} = navigation
 
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-  const toggleHeart = () => setActive(previousState => !previousState);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState)
+  const toggleHeart = () => setActive(previousState => !previousState)
   const toggleRedCheckBox = () =>
-    setRedCheckBoxValue(redCheckBoxValue => !redCheckBoxValue);
+    setRedCheckBoxValue(redCheckBoxValue => !redCheckBoxValue)
   const toggleWhiteCheckBox = () =>
-    setWhiteCheckBoxValue(whiteCheckBoxValue => !whiteCheckBoxValue);
+    setWhiteCheckBoxValue(whiteCheckBoxValue => !whiteCheckBoxValue)
   const toggleTagBig = () =>
-    setIsInvisibleBorder(previousState => !previousState);
+    setIsInvisibleBorder(previousState => !previousState)
   const toggleTagSmall = () =>
-    setIsVisibleBorder(previousState => !previousState);
-  const minus1 = () => setCount(count => (count ? count - 1 : count + 0));
-  const plus1 = () => setCount(count + 1);
-  const openPopUp = () => navigate('POPUP');
-  const openMyBag = () => navigate('MyBag');
-  const openSuccess = () => navigate('SuccessScreen');
-  const openAuth = () => navigate('SignUpScreen');
-  const openFilterList = () => navigate('FiltersListScreen');
-  const openMyProfile = () => navigate('MyProfileScreen');
-  const openFiltersScreen = () => navigate('FiltersScreen');
-  const openMyOrdersScreen = () => navigate('MyOrdersScreen');
-  const openSettingsScreen = () => navigate('SettingsScreen');
+    setIsVisibleBorder(previousState => !previousState)
+  const minus1 = () => setCount(count => (count ? count - 1 : count + 0))
+  const plus1 = () => setCount(count + 1)
+  const openPopUp = () => navigate('POPUP')
+  const openMyBag = () => navigate('MyBag')
+  const openSuccess = () => navigate('SuccessScreen')
+  const openAuth = () => navigate('SignUpScreen')
+  const openFilterList = () => navigate('FiltersListScreen')
+  const openMyProfile = () => navigate('MyProfileScreen')
+  const openFiltersScreen = () => navigate('FiltersScreen')
+  const openMyOrdersScreen = () => navigate('MyOrdersScreen')
+  const openSettingsScreen = () => navigate('SettingsScreen')
+  const openOrderDetailsScreen = () => navigate('OrderDetailsScreen')
 
   return (
     <ScrollView style={container}>
@@ -454,9 +455,18 @@ function Home({navigation, route}: HomeT) {
           title={'Open My Bag!'}
         />
         <Space height={25} />
+        <Text title="openOrderDetailsScreen" h1 textStyle={textStyle} />
+        <Space height={10} />
+        <Button
+          onPress={openOrderDetailsScreen}
+          isSmall={false}
+          isOutline={false}
+          title={'Open OrderDetailsScreen!'}
+        />
+        <Space height={25} />
       </View>
     </ScrollView>
-  );
+  )
 }
 
-export {Home};
+export {Home}
